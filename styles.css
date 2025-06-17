@@ -173,8 +173,8 @@ header {
     padding: 0 5%;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #eee;
     background-color: var(--light-gray);
+    gap: 30px;
 }
 
 .contact-info {
@@ -198,6 +198,66 @@ header {
     font-size: 1.2rem;
 }
 
+.search-container {
+    flex-shrink: 0;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition);
+    min-width: 300px;
+}
+
+.search-box:focus-within {
+    border-color: var(--accent-red);
+    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+}
+
+.search-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: transparent;
+}
+
+.search-input::placeholder {
+    color: var(--medium-gray);
+}
+
+.search-btn {
+    padding: 12px 16px;
+    background: var(--accent-red);
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-btn:hover {
+    background: var(--light-red);
+}
+
+.mobile-search {
+    display: none;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.mobile-search .search-box {
+    min-width: auto;
+    width: 100%;
+}
+
 .main-nav {
     padding: 0;
 }
@@ -207,12 +267,13 @@ header {
     list-style: none;
     justify-content: center;
     margin: 0;
-    padding: 20px 0;
+    padding: 10px;
     background-color: var(--accent-red);
 }
 
 .nav-links li {
-    margin: 0 25px;
+    margin: 0;
+    position: relative;
 }
 
 .nav-link {
@@ -225,25 +286,14 @@ header {
     transition: var(--transition);
 }
 
-.nav-link:hover,
-.nav-link.active {
+.nav-link:hover:not(.active) {
     color: var(--primary-blue);
+    text-decoration: underline;
 }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: var(--primary-blue);
-    transition: var(--transition);
-}
-
-.nav-link.active::after,
-.nav-link:hover::after {
-    width: 100%;
+.nav-link.active {
+    background-color: var(--dark-gray);
+    color: white;
 }
 
 /* Updated Service Cards */
@@ -279,21 +329,26 @@ header {
 /* Mobile Responsive Updates */
 @media (max-width: 768px) {
     .header-top {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
+        padding: 10px 5%;
+        justify-content: space-between;
+        position: relative;
     }
     
-    .contact-info {
-        flex-direction: column;
-        gap: 10px;
+    .logo img {
+        width: 150px;
+    }
+    
+    .contact-info,
+    .search-container {
+        display: none;
     }
     
     .mobile-toggle {
         display: block;
         position: absolute;
-        top: 15px;
+        top: 50%;
         right: 20px;
+        transform: translateY(-50%);
     }
     
     .nav-links {
@@ -301,7 +356,7 @@ header {
         top: 100%;
         left: 0;
         width: 100%;
-        background: white;
+        background: var(--accent-red);
         flex-direction: column;
         padding: 20px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -318,11 +373,24 @@ header {
     }
     
     .nav-links li {
-        margin: 10px 0;
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-link {
+        padding: 15px 0;
+        color: var(--accent-red);
+        text-align: center;
+    }
+    
+    .mobile-search {
+        display: block;
     }
 }
-        
-        
         
 /* Hero Section */
 .hero {
@@ -338,6 +406,27 @@ header {
     position: relative;
     width: 100%;
     height: 100%;
+}
+
+.slide1 {
+    background-image: url('imgs/photo108.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.slide2 {
+    background-image: url('imgs/photo40.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.slide3 {
+    background-image: url('imgs/photo120.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .hero-slide {

@@ -49,6 +49,16 @@
                 </div>
             </div>
         </div>
+
+        <!-- Search Bar-->
+        <div class="search-container">
+            <div class="search-box">
+                <input type="search" placeholder="Search..." class="search-input" aria-label="Search">
+                <button type="submit" class="search-btn" aria-label="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
         
         <!-- Navigation Bar -->
         <nav class="main-nav" role="navigation" aria-label="Main navigation">
@@ -57,6 +67,14 @@
             </div>
             
             <ul class="nav-links" id="nav-links" role="menubar">
+                <li class="mobile-search">
+                    <div class="search-box">
+                        <input type="search" placeholder="Search..." class="search-input" aria-label="Mobile search">
+                        <button type="submit" class="search-btn" aria-label="Search">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </li>
                 <li role="none"><a href="#home" role="menuitem" class="nav-link active" aria-current="page">Home</a></li>
                 <li role="none"><a href="#services" role="menuitem" class="nav-link">Services</a></li>
                 <li role="none"><a href="#homes" role="menuitem" class="nav-link">Homes</a></li>
@@ -71,7 +89,7 @@
     <section class="hero" id="home">
     <div class="hero-slideshow">
         <!-- Slide 1 -->
-        <div class="hero-slide active" data-bg="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
+        <div class="hero-slide active slide1">
             <div class="container">
                 <div class="hero-content">
                     <h1 class="hero-title">BUILD YOUR DREAM HOME</h1>
@@ -85,7 +103,7 @@
         </div>
         
         <!-- Slide 2 -->
-        <div class="hero-slide" data-bg="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
+        <div class="hero-slide slide2">
             <div class="container">
                 <div class="hero-content">
                     <h1 class="hero-title">RENOVATE & TRANSFORM</h1>
@@ -99,11 +117,11 @@
         </div>
         
         <!-- Slide 3 -->
-        <div class="hero-slide" data-bg="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
+        <div class="hero-slide slide3">
             <div class="container">
                 <div class="hero-content">
                     <h1 class="hero-title">QUALITY CONSTRUCTION</h1>
-                    <p class="hero-subtitle">15+ years of construction excellence. From foundations to finishing touches, we deliver projects that stand the test of time.</p>
+                    <p class="hero-subtitle">7+ years of construction excellence. From foundations to finishing touches, we deliver projects that stand the test of time.</p>
                     <div class="hero-btns">
                         <a href="#about" class="btn">Our Experience</a>
                         <a href="#homes" class="btn btn-outline">View Projects</a>
@@ -140,7 +158,7 @@
             <div class="services-grid">
     <article class="service-card">
         <div class="service-img">
-            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="House Construction">
+            <img src="imgs/photo135.jpg" alt="House Construction">
         </div>
         <div class="service-content">
             <h3>House Construction</h3>
@@ -162,7 +180,7 @@
     
     <article class="service-card">
         <div class="service-img">
-            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Renovations">
+            <img src="imgs/photo77.jpg" alt="Renovations">
         </div>
         <div class="service-content">
             <h3>Renovations</h3>
@@ -198,7 +216,7 @@
                             <span><i class="fas fa-bath"></i> 3 Baths</span>
                             <span><i class="fas fa-ruler-combined"></i> 2,850 sq.ft.</span>
                         </div>
-                        <div class="home-price">$650,000</div>
+                        <div class="home-price">K650,000</div>
                         <p>Stunning modern design with panoramic views and smart home technology.</p>
                         <a href="#" class="btn btn-outline">View Details</a>
                     </div>
@@ -206,7 +224,7 @@
                 
                 <div class="home-card">
                     <div class="home-img">
-                        <img src="https://images.unsplash.com/photo-1575517111839-3a3843ee7f5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Contemporary Family Home">
+                        <img src="imgs/photo35.jpg" alt="Contemporary Family Home">
                     </div>
                     <div class="home-info">
                         <h3>Contemporary Family Home</h3>
@@ -215,7 +233,7 @@
                             <span><i class="fas fa-bath"></i> 3.5 Baths</span>
                             <span><i class="fas fa-ruler-combined"></i> 3,200 sq.ft.</span>
                         </div>
-                        <div class="home-price">$720,000</div>
+                        <div class="home-price">K720,000</div>
                         <p>Spacious family home with open concept living and professionally landscaped yard.</p>
                         <a href="#" class="btn btn-outline">View Details</a>
                     </div>
@@ -223,7 +241,7 @@
                 
                 <div class="home-card">
                     <div class="home-img">
-                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Urban Townhouse">
+                        <img src="imgs/photo17.jpg" alt="Urban Townhouse">
                     </div>
                     <div class="home-info">
                         <h3>Urban Townhouse</h3>
@@ -232,7 +250,7 @@
                             <span><i class="fas fa-bath"></i> 2.5 Baths</span>
                             <span><i class="fas fa-ruler-combined"></i> 1,850 sq.ft.</span>
                         </div>
-                        <div class="home-price">$420,000</div>
+                        <div class="home-price">K1,000,000</div>
                         <p>Chic urban living with premium finishes and rooftop terrace in the city center.</p>
                         <a href="#" class="btn btn-outline">View Details</a>
                     </div>
@@ -284,7 +302,7 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h3>Zurich Construction</h3>
-                    <p>Building excellence since 2008. We specialize in creating beautiful, functional spaces that stand the test of time.</p>
+                    <p>Building excellence since 2018. We specialize in creating beautiful, functional spaces that stand the test of time.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -349,56 +367,6 @@ if (mobileToggle && navLinks) {
 const navLinksElements = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('section[id]');
 
-function updateActiveNavigation() {
-    const scrollPosition = window.scrollY + 100;
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-        
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            navLinksElements.forEach(link => {
-                link.classList.remove('active');
-                link.removeAttribute('aria-current');
-            });
-            
-            const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-            if (activeLink) {
-                activeLink.classList.add('active');
-                activeLink.setAttribute('aria-current', 'page');
-            }
-        }
-    });
-}
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const headerHeight = document.querySelector('header').offsetHeight;
-            const targetPosition = target.offsetTop - headerHeight - 20;
-            
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-            
-            // Close mobile menu if open
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                mobileToggle.setAttribute('aria-expanded', 'false');
-            }
-        }
-    });
-});
-
-// Update navigation on scroll
-window.addEventListener('scroll', updateActiveNavigation);
-
 // Header scroll effect
 window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
@@ -408,9 +376,6 @@ window.addEventListener('scroll', () => {
         header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
     }
 });
-
-// Initialize active navigation on page load
-document.addEventListener('DOMContentLoaded', updateActiveNavigation);
 
 // Hero Slideshow Functionality
 class HeroSlideshow {
