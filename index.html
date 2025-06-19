@@ -31,6 +31,16 @@
                 <img src="imgs/photo4.jpg" alt="Zurich Construction Logo">
             </div>
             
+        <div class="header-right">
+            <!-- Search Bar-->
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="search" placeholder="Search..." class="search-input" aria-label="Search">
+                    <button type="submit" class="search-btn" aria-label="Search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-phone" aria-hidden="true"></i>
@@ -50,14 +60,6 @@
             </div>
         </div>
 
-        <!-- Search Bar-->
-        <div class="search-container">
-            <div class="search-box">
-                <input type="search" placeholder="Search..." class="search-input" aria-label="Search">
-                <button type="submit" class="search-btn" aria-label="Search">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
         </div>
         
         <!-- Navigation Bar -->
@@ -386,6 +388,13 @@ class HeroSlideshow {
         this.slideInterval = null;
         this.isTransitioning = false;
         
+        // Touch/swipe properties
+        this.startX = 0;
+        this.startY = 0;
+        this.distX = 0;
+        this.distY = 0;
+        this.threshold = 50; // minimum distance for swipe
+        
         this.init();
     }
     
@@ -415,13 +424,56 @@ class HeroSlideshow {
             if (e.key === 'ArrowRight') this.nextSlide();
         });
         
-        // Pause on hover
+        // Touch/swipe events
         const heroSection = document.querySelector('.hero');
-        heroSection?.addEventListener('mouseenter', () => this.pauseSlideshow());
-        heroSection?.addEventListener('mouseleave', () => this.startSlideshow());
+        if (heroSection) {
+            heroSection.addEventListener('touchstart', (e) => this.handleTouchStart(e), { passive: true });
+            heroSection.addEventListener('touchmove', (e) => this.handleTouchMove(e), { passive: true });
+            heroSection.addEventListener('touchend', (e) => this.handleTouchEnd(e), { passive: true });
+            
+            // Pause on hover (desktop)
+            heroSection.addEventListener('mouseenter', () => this.pauseSlideshow());
+            heroSection.addEventListener('mouseleave', () => this.startSlideshow());
+        }
         
         // Start slideshow
         this.startSlideshow();
+    }
+    
+    handleTouchStart(e) {
+        this.startX = e.touches[0].clientX;
+        this.startY = e.touches[0].clientY;
+    }
+    
+    handleTouchMove(e) {
+        if (!this.startX || !this.startY) return;
+        
+        this.distX = e.touches[0].clientX - this.startX;
+        this.distY = e.touches[0].clientY - this.startY;
+    }
+    
+    handleTouchEnd(e) {
+        if (!this.startX || !this.startY) return;
+        
+        // Check if horizontal swipe is greater than vertical (to avoid interfering with scrolling)
+        if (Math.abs(this.distX) > Math.abs(this.distY)) {
+            // Check if swipe distance meets threshold
+            if (Math.abs(this.distX) > this.threshold) {
+                if (this.distX > 0) {
+                    // Swipe right - go to previous slide
+                    this.prevSlide();
+                } else {
+                    // Swipe left - go to next slide
+                    this.nextSlide();
+                }
+            }
+        }
+        
+        // Reset values
+        this.startX = 0;
+        this.startY = 0;
+        this.distX = 0;
+        this.distY = 0;
     }
     
     goToSlide(index) {
